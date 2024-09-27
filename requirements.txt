@@ -3,3 +3,4 @@ plotly-express
 streamlit
 plotly
 matplotlib
+scikit-learn
