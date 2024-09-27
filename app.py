@@ -45,7 +45,7 @@ def filter_numeric(data):
 
 
 def preprocess_data():
-    data =pd.read('data\cleaned_data.csv')
+    data =pd.read('cleaned_data.csv')
 
     mapping =  {'Graduate':2,'Dropout':1,'Enrolled':0}
     data['Target'] = data['Target'].map(mapping)
@@ -53,7 +53,7 @@ def preprocess_data():
     scaled_data = scaler.fit_transform(data)
     return scaled_data
 
-df = pd.read_csv('data\cleaned_data.csv')
+df = pd.read_csv('cleaned_data.csv')
 total_students = df.value_counts().sum()
 total_male = df[df['Gender']==1].value_counts().sum()
 total_female = df[df['Gender']==0].value_counts().sum()
@@ -133,7 +133,7 @@ fig = px.imshow(data_numeric.corr(),text_auto=True,
                 color_continuous_scale='Blues',height=600,width=1500)
 st.plotly_chart(fig)
 def percentage_display():
-    percentage_data = pd.read_csv('data\percentage table.csv')   
+    percentage_data = pd.read_csv('percentage table.csv')   
     tp_percentage_table = percentage_data.T
     tp_percentage_table = tp_percentage_table.reset_index()
     tp_percentage_table_=tp_percentage_table.columns=['Category','Percentage']
@@ -153,7 +153,7 @@ st.subheader('Principal Component Analysis')
 pca_number = st.slider('Select Number of Component',min_value=2,max_value=4)
 
 
-pca_data= pd.read_csv('data\cleaned_data.csv')
+pca_data= pd.read_csv('cleaned_data.csv')
 
 mapping ={'Dropout':0,'Graduate':1,'Enrolled':2}
 pca_data['Target'] = pca_data['Target'].map(mapping)
@@ -163,9 +163,9 @@ scaled_data=scaler.fit_transform(pca_data)
 
 pca = PCA(n_components=pca_number)
 pca_result = pca.fit_transform(scaled_data)
-pca_df_2 = pd.read_csv('data\PCA.csv')
-pca_df_3 = pd.read_csv('data\PCA3.csv')
-pca_df_4 = pd.read_csv('data\PCA4.csv')
+pca_df_2 = pd.read_csv('PCA.csv')
+pca_df_3 = pd.read_csv('PCA3.csv')
+pca_df_4 = pd.read_csv('PCA4.csv')
 if pca_number==2:
     fig = px.scatter(pca_df_2,x='PCA1',y='PCA2',color=pca_data['Target'],
                          color_discrete_sequence=px.colors.qualitative.Set1)
