@@ -3,8 +3,4 @@ plotly-express
 streamlit
 plotly
 matplotlib
-<<<<<<< HEAD
 scikit-learn
-=======
-scikit-learn
->>>>>>> 254afc04cf8235a0faebb7caee02c7a0e583c05d
